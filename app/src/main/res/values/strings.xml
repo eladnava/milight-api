@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Milight API</string>
+    <string name="greeting">Tweak the \"MILIGHT_*\" properties in MainActivity.java for a test run!</string>
+</resources>
