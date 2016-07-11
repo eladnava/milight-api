@@ -13,7 +13,7 @@ Then, make sure you declare the following permissions in your `AndroidManifest.x
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 ```
 
-Finally, start using the API by configuring the Milight router host, port, and desired zone to control:
+Start using the API by configuring the Milight router host, port, and desired zone to control:
 
 ```java
 // Set to desired light bulb zone (1 to 4, or 0 for all zones)
@@ -25,7 +25,11 @@ String milightHost = "255.255.255.255";
 
 // Create a new instance of the Milight API
 MilightAPI api = new MilightAPI(MainActivity.this, milightHost, milightPort, milightZone);
+```
 
+Finally, start issuing commands to control the Milight color, brightness, and more:
+
+```java
 // Turn on the light bulb
 api.turnOn();
 
