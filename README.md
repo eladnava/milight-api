@@ -4,7 +4,7 @@ An Android API client for controlling [Milight RGBW connected light bulbs](http:
 
 ## Usage
 
-Download the [`milight-api.jar`](https://github.com/eladnava/milight-api/raw/master/api/release/milight-api.jar) and place it in your application's `libs/` folder. Alternatively, clone the repository and reference the import the `api` module into your project.
+Download the [`milight-api.jar`](https://github.com/eladnava/milight-api/raw/master/api/release/milight-api.jar) and place it in your application's `libs/` folder. Alternatively, clone the repository and import the `api` module into your project.
 
 Then, make sure you declare the following permissions in your `AndroidManifest.xml`:
 
