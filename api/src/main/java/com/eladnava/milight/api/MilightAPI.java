@@ -34,9 +34,9 @@ public class MilightAPI {
         }
     }
 
-    public void turnOn() throws Exception {
+    private void selectZone() throws Exception {
         // Log it
-        Log.d(Logging.TAG, "Turning on and selecting zone " + zone);
+        Log.d(Logging.TAG, "Selecting zone " + zone);
 
         // Construct the zone selection command
         byte[] zoneSelectionCommand = new byte[]{MilightBindings.selectCommandsByZone[zone], 0x00, 0x55};
@@ -48,14 +48,20 @@ public class MilightAPI {
         Thread.sleep(MilightTimeouts.SELECT_ZONE_DELAY_MS);
     }
 
-    private void selectZone() throws Exception {
-        // Zone selection command is same command as turning the bulb on
-        turnOn();
+    public void turnOn() throws Exception {
+        // Log it
+        Log.d(Logging.TAG, "Turning on zone " + zone);
+
+        // Zone selection command also turns the bulb on
+        selectZone();
+
+        // Wait a bit longer for the bulb to actually turn on (selecting an already-on bulb takes less time)
+        Thread.sleep(MilightTimeouts.TURN_ON_DURATION_MS);
     }
 
     public void turnOff() throws Exception {
         // Log it
-        Log.d(Logging.TAG, "Turning off light zone " + zone);
+        Log.d(Logging.TAG, "Turning off zone " + zone);
 
         // Construct the kill command
         byte[] zoneOffPacket = new byte[]{MilightBindings.turnOffCommandsByZone[zone], 0x00, 0x55};
